@@ -1,0 +1,33 @@
+version: 2
+updates:  
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: gomod
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: github.com/Finschia/wasmvm
+    versions:
+    - 1.0.0-0.10.0
+  - dependency-name: github.com/Finschia/ostracon
+    versions:
+    - 1.0.7
+  - dependency-name: github.com/Finschia/finschia-sdk
+    versions:
+    - 0.46.0
+  - dependency-name: google.golang.org/grpc
+    versions:
+    - 1.36.0
+    - 1.36.1
+    - 1.37.0
+  - dependency-name: github.com/spf13/cobra
+    versions:
+    - 1.1.2
+  - dependency-name: github.com/tendermint/tm-db
+    versions:
+    - 0.6.4

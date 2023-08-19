@@ -1,0 +1,71 @@
+#
+# This codecov.yml is the default configuration for
+# all repositories on Codecov. You may adjust the settings
+# below in your own codecov.yml in your repository.
+#
+codecov:
+  require_ci_to_pass: yes
+  bot: Codecov bot for LINK
+
+comment:
+  layout: "reach, diff, files"
+  behavior: default  # update if exists else create new
+  require_changes: false
+
+coverage:
+  status:
+    project:
+      default:
+        target: 50
+        threshold: 1% # allow this much decrease on project
+      app:
+        target: 70%
+        flags:
+          - app
+      modules:
+        target: 70%
+        flags:
+          - modules
+      client:
+        flags:
+          - client
+    changes: false
+  precision: 2
+  range: 50...90
+  round: down
+
+flags:
+  app:
+    paths:
+      - "app/"
+      - "baseapp/"
+  modules:
+    paths:
+      - "x/"
+      - "!x/**/client/" # ignore client package
+  client:
+    paths:
+      - "client/"
+      - "x/**/client/"
+
+ignore:
+  - "docs"
+  - "*.md"
+  - "*.rst"
+  - "*.yml"
+  - "*.yaml"
+  - "*.sh"
+  - "*.png"
+  - "*_test.go"
+  - "**/*_easyjson.go"
+  - "x/**/*.pb.go"
+  - "x/**/*.pb.gw.go"
+  - "scripts/"
+  - "x/**/test_common.go"
+  - "*_cmd.go"
+  - "contrib"
+  - "statik.go"
+  - "root.go"
+  - "x/**/module.go"
+  - "x/**/errors.go"
+  - "x/**/key.go"
